@@ -1,5 +1,5 @@
 
-![Image of wcpy API][https://github.com/axsauze/wcpy-api/blob/master/assets/wcpy-api.jpg]
+![Image of wcpy API](https://github.com/axsauze/wcpy-api/blob/master/assets/wcpy-api.jpg)
 
 # wc.py visual interface
 
