@@ -1,7 +1,8 @@
 
-![Image of wcpy API](https://github.com/axsauze/wcpy-api/blob/master/assets/wcpy-api.jpg)
-
 # wc.py visual interface
+
+
+![Image of wcpy API](https://github.com/axsauze/wcpy-api/blob/master/assets/wcpy-api.jpg)
 
 This repository contains the visual interface to interact with the [wc.py library](http://github.com/axsauze/wcpy).
 
