@@ -14,7 +14,7 @@ pytest-runner==2.11.1
 python-dateutil==2.6.0
 pytz==2017.2
 six==1.10.0
-wcpy==1.1
+wcpy==1.2
 Werkzeug==0.12.2
 certifi==2017.4.17
 chardet==3.0.4
