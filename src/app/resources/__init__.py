@@ -1,1 +1,1 @@
-from resources.wc_text_processor_resource import WCTextProcessorResource
+from resources.wc_text_resource import WCTextResource

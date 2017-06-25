@@ -1,0 +1,127 @@
+<html>
+<head>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" type="text/css" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+
+    <!-- Bootstrap Material Design -->
+    <link rel="stylesheet" type="text/css" href="node_modules/bootstrap-material-design/dist/css/bootstrap-material-design.css">
+    <link rel="stylesheet" type="text/css" href="node_modules/bootstrap-material-design/dist/css/ripples.min.css">
+
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+
+
+    <script src="node_modules/bootstrap-material-design/dist/js/material.min.js"></script>
+    <script src="node_modules/bootstrap-material-design/dist/js/ripples.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            // This command is used to initialize some elements and make them work properly
+            $.material.init();
+        });
+    </script>
+
+    <script>
+    $(document).ready(function() {
+
+        var url = "http://127.0.0.1:3000/";
+        var raw_text_url = url + "raw_text";
+
+        $("#process-button").click(function(e) {
+            e.preventDefault();
+
+            var text = $("#raw_text").val();
+
+            var sorted_list = $('#list-checkbox').prop('checked');
+
+            if(text) {
+                var data = {
+                    raw_text: text,
+                    sorted_list: sorted_list
+                };
+
+                $.ajax({
+                    url: raw_text_url,
+                    data: JSON.stringify(data, null, '\t'),
+                    contentType: 'application/json;charset=UTF-8',
+                    type: 'POST',
+                    success: function(data) {
+                        $("#response").val(JSON.stringify(data, null, 4));
+                    }
+                });
+                $("#raw_text").val();
+            }
+        });
+    })
+    </script>
+</head>
+<body>
+
+<div class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-inverse-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="javascript:void(0)">Word Count Python Visualiser</a>
+    </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+      <div class="col-sm-6">
+        <h2>Test word count</h2>
+      </div>
+      <div class="col-sm-6">
+          <span class="togglebutton">
+              <label>
+                Create sorted list
+                <input id="list-checkbox" type="checkbox" checked>
+              </label>
+            </span>
+          <span>
+              <a id="process-button" href="#" class="btn btn-raised btn-info">Process text</a>
+          </span>
+      </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-6">
+      <h3 for="response" class="control-label">Input text</h3>
+      <div class="form-group label-floating">
+        <label for="raw_text" class="control-label">Input Text</label>
+        <textarea id="raw_text" class="form-control" style="height: 70vh">
+            Let me begin by saying thanks to all you who've traveled, from far and wide, to brave the cold today.
+            We all made this journey for a reason. It's humbling, but in my heart I know you didn't come here just for me, you came here because you believe in what this country can be. In the face of war, you believe there can be peace. In the face of despair, you believe there can be hope. In the face of a politics that's shut you out, that's told you to settle, that's divided us for too long, you believe we can be one people, reaching for what's possible, building that more perfect union.
+            That's the journey we're on today. But let me tell you how I came to be here. As most of you know, I am not a native of this great state. I moved to Illinois over two decades ago. I was a young man then, just a year out of college; I knew no one in Chicago, was without money or family connections. But a group of churches had offered me a job as a community organizer for $13,000 a year. And I accepted the job, sight unseen, motivated then by a single, simple, powerful idea - that I might play a small part in building a better America.
+            My work took me to some of Chicago's poorest neighborhoods. I joined with pastors and lay-people to deal with communities that had been ravaged by plant closings. I saw that the problems people faced weren't simply local in nature - that the decision to close a steel mill was made by distant executives; that the lack of textbooks and computers in schools could be traced to the skewed priorities of politicians a thousand miles away; and that when a child turns to violence, there's a hole in his heart no government could ever fill.
+            It was in these neighborhoods that I received the best education I ever had, and where I learned the true meaning of my Christian faith.
+            After three years of this work, I went to law school, because I wanted to understand how the law should work for those in need. I became a civil rights lawyer, and taught constitutional law, and after a time, I came to understand that our cherished rights of liberty and equality depend on the active participation of an awakened electorate. It was with these ideas in mind that I arrived in this capital city as a state Senator.
+            It was here, in Springfield, where I saw all that is America converge - farmers and teachers, businessmen and laborers, all of them with a story to tell, all of them seeking a seat at the table, all of them clamoring to be heard. I made lasting friendships here - friends that I see in the audience today.
+            It was here we learned to disagree without being disagreeable - that it's possible to compromise so long as you know those principles that can never be compromised; and that so long as we're willing to listen to each other, we can assume the best in people instead of the worst.
+            That's why we were able to reform a death penalty system that was broken. That's why we were able to give health insurance to children in need. That's why we made the tax system more fair and just for working families, and that's why we passed ethics reforms that the cynics said could never, ever be passed.
+            It was here, in Springfield, where North, South, East and West come together that I was reminded of the essential decency of the American people - where I came to believe that through this decency, we can build a more hopeful America.
+            And that is why, in the shadow of the Old State Capitol, where Lincoln once called on a divided house to stand together, where common hopes and common dreams still, I stand before you today to announce my candidacy for President of the United States.
+            I recognize there is a certain presumptuousness - a certain audacity - to this announcement. I know I haven't spent a lot of time learning the ways of Washington. But I've been there long enough to know that the ways of Washington must change.
+            The genius of our founders is that they designed a system of government that can be changed. And we should take heart, because we've changed this country before. In the face of tyranny, a band of patriots brought an Empire to its knees. In the face of secession, we unified a nation and set the captives free. In the face of Depression, we put people back to work and lifted millions out of poverty. We welcomed immigrants to our shores, we opened railroads to the west, we landed a man on the moon, and we heard a King's call to let justice roll down like water, and righteousness like a mighty stream.
+            Each and every time, a new generation has risen up and done what's needed to be done. Today we are called once more - and it is time for our generation to answer that call.
+            For that is our unyielding faith - that in the face of impossible odds, people who love their country can change it.
+            That's what Abraham Lincoln understood. He had his doubts. He had his defeats. He had his setbacks. But through his will and his words, he moved a nation and helped free a people. It is because of the millions who rallied to his cause that we are no longer divided, North and South, slave and free. It is because men and women of every race, from every walk of life, continued to march for freedom long after Lincoln was laid to rest, that today we have the chance to face the challenges of this millennium together, as one people - as Americans.
+            All of us know what those challenges are today - a war with no end, a dependence on oil that threatens our future, schools where too many children aren't learning, and families struggling paycheck to paycheck despite working as hard as they can. We know the challenges. We've heard them. We've talked about them for years.
+        </textarea>
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <h3 for="response" class="control-label">Output response</h3>
+      <div class="form-group label-floating">
+        <textarea id="response" class="form-control" style="height: 70vh" disabled="true"></textarea>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
